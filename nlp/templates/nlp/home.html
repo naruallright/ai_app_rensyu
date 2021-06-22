@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>はじめての AI アプリ製作と 立ち上げ</h1>
+    <p>ラクマに出品する際、商品アイテムのカテゴリーを予測します</p>
+    <p>ラクマに出品されている商品とそのカテゴリーを学習しました。</p>
+    <p>入力欄に商品名を入れて送信するとそのカテゴリーが予測されます</p>
+
+    <form action="{% url 'home' %}" method="POST"> 
+        <input type="text" name="title">
+        {% csrf_token %}
+        <button type="submit">send送信</button>
+    </form>
+
+    {% if title %}
+
+    <h1>タイトル: {{ title }}</h1>
+
+    {% endif %}
+</body>
+</html>
